@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Roberta Cardoso ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:'Poppins', sans-serif;
+    background:black;
+    color:white;
+}
+
+/* VIDEO */
+
+#bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    object-position:center;
+    z-index:-2;
+    pointer-events:none;
+}
+
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.60);
+    z-index:-1;
+}
+
+/* PAGINAS */
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+    transition:1s;
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:scale(1.1);
+}
+
+h1{
+    font-family:'Great Vibes', cursive;
+    font-size:5rem;
+    margin-bottom:20px;
+    animation: brilho 2s infinite alternate;
+}
+
+p{
+    max-width:850px;
+    font-size:1.3rem;
+    line-height:1.9;
+}
+
+button{
+    margin-top:30px;
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    font-size:1rem;
+    cursor:pointer;
+    background:#ff4d6d;
+    color:white;
+    transition:0.3s;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(255,77,109,0.5);
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#ff758f;
+    box-shadow:0 0 30px rgba(255,77,109,0.9);
+}
+
+.emoji{
+    font-size:70px;
+    margin-bottom:20px;
+    animation:pulse 1.5s infinite;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+@keyframes brilho{
+    from{
+        text-shadow:0 0 10px #fff;
+    }
+    to{
+        text-shadow:0 0 25px #ff4d6d;
+    }
+}
+
+/* CORAÇÕES */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-120px;
+    animation:floatHeart linear infinite;
+    opacity:0.8;
+    filter:drop-shadow(0 0 10px #ff4d6d);
+}
+
+.hearts span:nth-child(1){ left:5%; font-size:22px; animation-duration:9s; }
+.hearts span:nth-child(2){ left:15%; font-size:35px; animation-duration:12s; }
+.hearts span:nth-child(3){ left:25%; font-size:28px; animation-duration:8s; }
+.hearts span:nth-child(4){ left:35%; font-size:40px; animation-duration:13s; }
+.hearts span:nth-child(5){ left:45%; font-size:26px; animation-duration:7s; }
+.hearts span:nth-child(6){ left:55%; font-size:34px; animation-duration:11s; }
+.hearts span:nth-child(7){ left:65%; font-size:24px; animation-duration:9s; }
+.hearts span:nth-child(8){ left:75%; font-size:38px; animation-duration:14s; }
+.hearts span:nth-child(9){ left:85%; font-size:30px; animation-duration:10s; }
+.hearts span:nth-child(10){ left:95%; font-size:20px; animation-duration:8s; }
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg) scale(0.7);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:translateY(-50vh) rotate(180deg) scale(1.1);
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg) scale(1.4);
+        opacity:0;
+    }
+}
+
+/* FOTO */
+
+.foto{
+    width:320px;
+    height:320px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:25px;
+    border:4px solid white;
+    margin-bottom:25px;
+    box-shadow:0 0 25px rgba(255,255,255,0.3);
+}
+
+/* RESPONSIVO CELULAR */
+
+@media screen and (max-width:768px){
+
+    body{
+        overflow:hidden;
+    }
+
+    #bg-video{
+        position:fixed;
+        top:0;
+        left:0;
+        min-width:100%;
+        min-height:100%;
+        width:auto;
+        height:auto;
+        object-fit:cover;
+        object-position:center;
+        transform:translateZ(0);
+    }
+
+    .overlay{
+        background:rgba(0,0,0,0.65);
+    }
+
+    .page{
+        width:100%;
+        height:100vh;
+        padding:20px;
+        justify-content:center;
+        text-align:center;
+    }
+
+    h1{
+        font-size:3rem;
+        line-height:1.1;
+        margin-bottom:15px;
+    }
+
+    p{
+        font-size:1rem;
+        line-height:1.7;
+        max-width:100%;
+    }
+
+    .emoji{
+        font-size:55px;
+    }
+
+    button{
+        width:90%;
+        max-width:320px;
+        padding:14px 20px;
+        font-size:1rem;
+    }
+
+    .foto{
+        width:260px;
+        height:260px;
+        border-radius:20px;
+    }
+
+    .hearts span{
+        animation-duration:10s;
+        opacity:0.9;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video autoplay muted loop playsinline webkit-playsinline id="bg-video">
+    <source src="roberta.mp4.mp4" type="video/mp4">
+</video>
+
+<!-- MUSICA -->
+<audio id="musica" loop>
+    <source src="roberta.mp3.mp3" type="audio/mp3">
+</audio>
+
+<div class="overlay"></div>
+
+<!-- CORAÇÕES -->
+<div class="hearts">
+    <span>❤️</span>
+    <span>💖</span>
+    <span>💕</span>
+    <span>💘</span>
+    <span>❤️</span>
+    <span>💞</span>
+    <span>💓</span>
+    <span>💗</span>
+    <span>💝</span>
+    <span>❤️</span>
+</div>
+
+<!-- PAGINA 1 -->
+
+<section class="page" id="page1">
+
+    <div class="emoji">💖</div>
+
+    <h1>Roberta Cardoso</h1>
+
+    <p>
+        Oi bb ✨<br><br>
+
+        Algumas pessoas entram na nossa vida de repente...
+        mas acabam se tornando especiais de um jeito impossível de explicar.
+        E você, minha vida, é exatamente assim pra mim.
+    </p>
+
+    <button onclick="nextPage(1,2)">
+        Continuar →
+    </button>
+
+</section>
+
+<!-- PAGINA 2 -->
+
+<section class="page hidden" id="page2">
+
+    <h1>Seu Jeitinho 💕</h1>
+
+    <p>
+        Amor, você consegue deixar qualquer momento melhor.
+        Sua amizade, suas mensagens,
+        seu jeito de conversar,
+        tudo em você transmite uma energia boa.
+        Sério bb, conversar com você é uma das melhores partes do meu dia.
+    </p>
+
+    <button onclick="nextPage(2,3)">
+        Próxima →
+    </button>
+
+</section>
+
+<!-- PAGINA 3 -->
+
+<section class="page hidden" id="page3">
+
+    <h1>Você é Especial ✨</h1>
+
+    <p>
+        Minha vida,
+        talvez eu não demonstre sempre,
+        mas você se tornou muito importante pra mim.
+        Obrigado por cada conversa,
+        cada risada,
+        cada momento.
+        Pessoas como você são raras hoje em dia ❤️
+    </p>
+
+    <button onclick="nextPage(3,4)">
+        Próxima →
+    </button>
+
+</section>
+
+<!-- PAGINA 4 -->
+
+<section class="page hidden" id="page4">
+
+    <div class="emoji">❤️</div>
+
+    <h1>Pra Você 💌</h1>
+
+    <p>
+        Roberta,
+        só queria que você soubesse que eu tenho muito carinho por você, bb.
+        Você merece felicidade,
+        paz,
+        amor
+        e tudo de melhor nessa vida.
+        Nunca esquece que você é uma pessoa incrível ✨
+    </p>
+
+    <button onclick="nextPage(4,5)">
+        Ver Última Página 💖
+    </button>
+
+</section>
+
+<!-- PAGINA 5 -->
+
+<section class="page hidden" id="page5">
+
+    <div class="emoji">📸</div>
+
+    <h1>Minha Favorita ❤️</h1>
+
+    <img 
+        src="Roberta.jpg.jpeg" 
+        alt="Foto da Roberta"
+        class="foto"
+    >
+
+    <p>
+        Minha vida ✨<br><br>
+
+        Você é uma pessoa incrível,
+        especial
+        e muito importante pra mim.
+        Obrigado por existir,
+        Sempre agradeço a Deus por isso,
+        e por ser essa menina maravilhosa ❤️<br><br>
+
+        Nunca duvide do quanto você é especial, bb.
+    </p>
+
+    <button onclick="alert('💖 Você sempre vai ser especial pra mim 💖')">
+        Finalizar ✨
+    </button>
+
+</section>
+
+<script>
+
+function nextPage(current, next){
+    document.getElementById("page"+current).classList.add("hidden");
+    document.getElementById("page"+next).classList.remove("hidden");
+}
+
+/* MUSICA */
+
+document.addEventListener("click", () => {
+
+    const musica = document.getElementById("musica");
+
+    musica.volume = 1;
+
+    musica.play();
+
+}, { once:true });
+
+/* VIDEO CELULAR */
+
+window.addEventListener('load', () => {
+
+    const video = document.getElementById('bg-video');
+
+    video.play();
+
+});
+
+</script>
+
+</body>
+</html>
